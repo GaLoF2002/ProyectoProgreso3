@@ -50,9 +50,6 @@
                     Text="Cancelar" />
 
             </VerticalStackLayout>
-
         </Grid>
-
     </Grid>
-    
 </ContentPage>

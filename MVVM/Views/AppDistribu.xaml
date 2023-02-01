@@ -12,6 +12,5 @@
             <views:TablePage/>
         </x:Arguments>
     </NavigationPage>
-
     <views:JNEstadisticas Title="Statistics" />
 </TabbedPage>

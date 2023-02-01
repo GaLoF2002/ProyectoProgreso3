@@ -21,7 +21,5 @@ namespace ProyectoProgreso3.MVVM.Models
                 return OperationDate.Humanize();
             }
         }
-
     }
-
 }

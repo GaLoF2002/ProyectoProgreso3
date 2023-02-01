@@ -14,15 +14,11 @@ namespace ProyectoProgreso3.MVVM.ViewModels
     {
         public ObservableCollection<GETransacion> Summary { get; set; }
         public ObservableCollection<MVTransacciones> SpendingList { get; set; }
-
         public void GetTransactionsSummary()
         {
-            var data =
-                 App.TransactionsRepo.GetItems();
-            var result =
-                 new List<GETransacion>();
-            var groupedTransactions =
-                 data.GroupBy(t => t.OperationDate.Date);
+            var data = App.TransactionsRepo.GetItems();
+            var result = new List<GETransacion>();
+            var groupedTransactions = data.GroupBy(t => t.OperationDate.Date);
 
             foreach (var group in groupedTransactions)
             {
@@ -34,14 +30,10 @@ namespace ProyectoProgreso3.MVVM.ViewModels
                 };
                 result.Add(transactionSummary);
             }
-
             result = result.OrderBy(x => x.TransactionsDate).ToList();
-
             Summary = new ObservableCollection<GETransacion>(result);
-
             var spendingList = data.Where(x => x.IsIncome == false);
             SpendingList = new ObservableCollection<MVTransacciones>(spendingList);
-
         }
     }
 }

@@ -15,7 +15,6 @@ namespace ProyectoProgreso3
              SQLiteOpenFlags.ReadWrite |
              SQLiteOpenFlags.Create |
              SQLiteOpenFlags.SharedCache;
-
         public static string DatabasePath
         {
             get

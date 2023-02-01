@@ -36,9 +36,6 @@
                     XBindingPath="ShownDate"
                     YBindingPath="TransactionsTotal" />
             </chart:SfCartesianChart>
-
-
-
         </Grid>
 
         <Grid
@@ -84,10 +81,7 @@
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-
             </CollectionView>
         </Grid>
-
     </Grid>
-  
 </ContentPage>

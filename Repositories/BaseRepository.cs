@@ -24,7 +24,6 @@ namespace ProyectoProgreso3.Repositories
                  Constants.Flags);
             connection.CreateTable<T>();
         }
-
         public void DeleteItem(T item)
         {
             try
@@ -38,28 +37,23 @@ namespace ProyectoProgreso3.Repositories
                      $"Error: {ex.Message}";
             }
         }
-
         public void Dispose()
         {
             connection.Close();
         }
-
         public T GetItem(int id)
         {
             try
             {
                 return
-                     connection.Table<T>()
-                     .FirstOrDefault(x => x.Id == id);
+                     connection.Table<T>().FirstOrDefault(x => x.Id == id);
             }
             catch (Exception ex)
             {
-                StatusMessage =
-                     $"Error: {ex.Message}";
+                StatusMessage = $"Error: {ex.Message}";
             }
             return null;
         }
-
         public T GetItem(Expression<Func<T, bool>> predicate)
         {
             try
@@ -74,7 +68,6 @@ namespace ProyectoProgreso3.Repositories
             }
             return null;
         }
-
         public List<T> GetItems()
         {
             try
@@ -83,8 +76,7 @@ namespace ProyectoProgreso3.Repositories
             }
             catch (Exception ex)
             {
-                StatusMessage =
-                     $"Error: {ex.Message}";
+                StatusMessage = $"Error: {ex.Message}";
             }
             return null;
         }
@@ -110,23 +102,20 @@ namespace ProyectoProgreso3.Repositories
             {
                 if (item.Id != 0)
                 {
-                    result =
-                         connection.Update(item);
+                    result = connection.Update(item);
                     StatusMessage =
                          $"{result} row(s) updated";
                 }
                 else
                 {
                     result = connection.Insert(item);
-                    StatusMessage =
-                         $"{result} row(s) added";
+                    StatusMessage = $"{result} row(s) added";
                 }
 
             }
             catch (Exception ex)
             {
-                StatusMessage =
-                     $"Error: {ex.Message}";
+                StatusMessage = $"Error: {ex.Message}";
             }
         }
 

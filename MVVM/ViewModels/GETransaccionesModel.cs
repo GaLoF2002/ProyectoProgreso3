@@ -11,12 +11,8 @@ namespace ProyectoProgreso3.MVVM.ViewModels
     {
         public MVTransacciones Transaction { get; set; } = new MVTransacciones
         {
-            OperationDate = DateTime.Now,
+            OperationDate = DateTime.Now
         };
-
-
-
-
         public string SaveTransaction()
         {
             App.TransactionsRepo.SaveItem(Transaction);
