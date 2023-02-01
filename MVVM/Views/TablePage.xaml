@@ -58,10 +58,10 @@
             Grid.Row="3"
             RowDefinitions=".1*,.9*"
             StyleClass="Margin15">
-            <Label Text="Transaccciones" />
+            <Label Text="Transacciones" />
             <CollectionView
                 Grid.Row="1"
-                EmptyView="No Data"
+                EmptyView="No hay datos"
                 ItemsSource="{Binding MVTransacciones}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="15" Orientation="Vertical" />

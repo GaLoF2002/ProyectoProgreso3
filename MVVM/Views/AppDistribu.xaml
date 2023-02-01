@@ -7,10 +7,10 @@
              Title="AppDistribu">
 
 
-    <NavigationPage Title="Principal">
+    <NavigationPage Title="Página Principal">
         <x:Arguments>
             <views:TablePage/>
         </x:Arguments>
     </NavigationPage>
-    <views:JNEstadisticas Title="Statistics" />
+    <views:JNEstadisticas Title="Estadísicas" />
 </TabbedPage>

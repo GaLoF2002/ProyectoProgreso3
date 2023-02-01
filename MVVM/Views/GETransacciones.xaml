@@ -8,7 +8,7 @@
     <Grid RowDefinitions=".15*,.15*,.70*">
         <RoundRectangle Grid.RowSpan="2" StyleClass="TopRectangle" />
         <VerticalStackLayout StyleClass="Header">
-            <Label StyleClass="HeaderSubTitle" Text="Add Transaction" />
+            <Label StyleClass="HeaderSubTitle" Text="Añadir una transacción" />
         </VerticalStackLayout>
 
         <Grid
@@ -18,24 +18,24 @@
             <RoundRectangle StyleClass="BalanceRectangle" />
 
             <VerticalStackLayout Spacing="10" StyleClass="Padding25">
-                <Label Text="Nombre de la Trassaccion" />
+                <Label Text="Nombre de la Transacción" TextColor="Black"/>
                 <Frame StyleClass="FrameBorder">
                     <Entry Text="{Binding MVTransacciones.Name}" />
                 </Frame>
-                <Label StyleClass="MarginT15" Text="Amount" />
+                <Label StyleClass="MarginT15" Text="Monto" TextColor="Black"/>
                 <Frame StyleClass="FrameBorder">
                     <Entry
                         Keyboard="Numeric"
                         Text="{Binding MVTransacciones.Amount}"
                         VerticalOptions="Center" />
                 </Frame>
-                <Label StyleClass="MarginT15" Text="Transaction Date" />
+                <Label StyleClass="MarginT15" Text="Fecha de la Transacción" TextColor="Black"/>
                 <Frame StyleClass="FrameBorder">
                     <DatePicker Date="{Binding MVTransacciones.OperationDate}" />
                 </Frame>
                 <HorizontalStackLayout>
                     <CheckBox IsChecked="{Binding MVTransacciones.IsIncome}" />
-                    <Label Text="Is Income?" />
+                    <Label Text="Son ingresos?" />
                 </HorizontalStackLayout>
 
                 <Button

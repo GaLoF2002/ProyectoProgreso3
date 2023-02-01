@@ -13,7 +13,7 @@
     <Grid RowDefinitions=".15*, .15*, .30*, .40*">
         <RoundRectangle Grid.RowSpan="2" StyleClass="TopRectangle" />
         <VerticalStackLayout StyleClass="Header">
-            <Label StyleClass="HeaderSubTitle" Text="Statistics" />
+            <Label StyleClass="HeaderSubTitle" Text="Estadísticas" />
         </VerticalStackLayout>
 
         <Grid
@@ -42,7 +42,7 @@
             Grid.Row="3"
             RowDefinitions=".1*,.9*"
             StyleClass="Margin15">
-            <Label Text="Top Spending" />
+            <Label Text="Principales gastos" />
             <CollectionView
                 Grid.Row="1"
                 EmptyView="No Data"
@@ -53,7 +53,7 @@
                 <CollectionView.EmptyViewTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Label StyleClass="NoDataText" Text="No data found, click on the + button to add a new transaction" />
+                            <Label StyleClass="NoDataText" Text="No se han encontrado datos, haga clic en el botón + para añadir una nueva transacción" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.EmptyViewTemplate>
