@@ -62,7 +62,7 @@
             <CollectionView
                 Grid.Row="1"
                 EmptyView="No hay datos"
-                ItemsSource="{Binding MVTransacciones}">
+                ItemsSource="{Binding Transactions}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="15" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>

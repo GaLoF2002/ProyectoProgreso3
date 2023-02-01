@@ -20,21 +20,21 @@
             <VerticalStackLayout Spacing="10" StyleClass="Padding25">
                 <Label Text="Nombre de la Transacción" TextColor="Black"/>
                 <Frame StyleClass="FrameBorder">
-                    <Entry Text="{Binding MVTransacciones.Name}" />
+                    <Entry Text="{Binding Transaction.Name}" />
                 </Frame>
                 <Label StyleClass="MarginT15" Text="Monto" TextColor="Black"/>
                 <Frame StyleClass="FrameBorder">
                     <Entry
                         Keyboard="Numeric"
-                        Text="{Binding MVTransacciones.Amount}"
+                        Text="{Binding Transaction.Amount}"
                         VerticalOptions="Center" />
                 </Frame>
                 <Label StyleClass="MarginT15" Text="Fecha de la Transacción" TextColor="Black"/>
                 <Frame StyleClass="FrameBorder">
-                    <DatePicker Date="{Binding MVTransacciones.OperationDate}" />
+                    <DatePicker Date="{Binding Transaction.OperationDate}" />
                 </Frame>
                 <HorizontalStackLayout>
-                    <CheckBox IsChecked="{Binding MVTransacciones.IsIncome}" />
+                    <CheckBox IsChecked="{Binding Transaction.IsIncome}" />
                     <Label Text="Son ingresos?" />
                 </HorizontalStackLayout>
 
