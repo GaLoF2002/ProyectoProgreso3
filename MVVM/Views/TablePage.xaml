@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:converters="clr-namespace:ProyectoProgreso3.Converters"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoProgreso3.MVVM.Views.TablePage"
+             Title="TablePage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <converters:AmountToCurrencyConverter x:Key="AmountConverter" />
+        <converters:AmountToColorConverter x:Key="ColorConverter" />
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions=".15*,.15*,.15*,.55*">
+        <RoundRectangle Grid.RowSpan="2" StyleClass="TopRectangle" />
+        <VerticalStackLayout StyleClass="Header">
+            <Label StyleClass="HeaderTitle" Text="Bienvenido a S-Plus" />
+            <Label StyleClass="HeaderSubTitle" Text="Tu presupuesto electronico" />
+        </VerticalStackLayout>
+
+        <Grid
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            StyleClass="BalanceGrid">
+
+            <RoundRectangle StyleClass="BalanceRectangle" />
+
+            <Grid
+                ColumnDefinitions="*,*"
+                RowDefinitions=".333*,.333*,.333*"
+                StyleClass="Padding25">
+                <VerticalStackLayout>
+                    <Label Text="Presupuesto Total" />
+                    <Label StyleClass="StrongTitle" Text="{Binding Balance, StringFormat='{0:C}'}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="2">
+                    <Label Text="Ingresos" />
+                    <Label StyleClass="StrongSubTitle" Text="{Binding Income, StringFormat='{0:C}'}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalOptions="Center">
+                    <Label Text="Gastos" />
+                    <Label StyleClass="StrongSubTitle" Text="{Binding Expenses, StringFormat='{0:C}'}" />
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+
+        <Button
+            x:Name="AddTransaction"
+            Grid.Row="2"
+            Clicked="AddTransaction_Clicked"
+            StyleClass="CircularButton"
+            Text="+" />
+
+        <Grid
+            Grid.Row="3"
+            RowDefinitions=".1*,.9*"
+            StyleClass="Margin15">
+            <Label Text="Transaccciones" />
+            <CollectionView
+                Grid.Row="1"
+                EmptyView="No Data"
+                ItemsSource="{Binding MVTransacciones}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="15" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyViewTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Label StyleClass="NoDataText" Text="No se ha encontrado datos, agrega un nuevo dato" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.EmptyViewTemplate>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+                            <Label StyleClass="StrongMediumTitle" Text="{Binding Name}" />
+                            <Label
+                                Grid.Row="1"
+                                StyleClass="SmallFont"
+                                Text="{Binding HumanDate}" />
+
+                            <Label
+                                x:Name="lblIsIncome"
+                                IsVisible="False"
+                                Text="{Binding IsIncome}" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                StyleClass="ListAmount"
+                                Text="{Binding Amount, Converter={StaticResource AmountConverter}, ConverterParameter={x:Reference lblIsIncome}}"
+                                TextColor="{Binding Amount, Converter={StaticResource ColorConverter}, ConverterParameter={x:Reference lblIsIncome}}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+
+    </Grid>
+
+
+</ContentPage>
